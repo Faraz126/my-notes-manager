@@ -8,6 +8,7 @@
                 {{ note.published_date}}
             </div>
         {% endif %}
+        <a class="btn btn-default" href="{% url 'note_edit' pk=note.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 
         <h1>{{ note.author }}</h1>
         <p>{{ note.text|linebreaksbr }}</p>
