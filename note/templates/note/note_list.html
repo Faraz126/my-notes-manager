@@ -1,29 +1,17 @@
+{% extends 'note/base.html' %}
 
 
-<html>
-    
-<head>
-    <title>Faraz Notes app</title>
-</head>
-<body>
-    <div>
-        <h1><a href ="/">Faraz Notes App</a></h1>
+{% block content %}
+
+{% for note in notes %}
+
+<div class="note">
+    <div class="date">
+        <p>published: {{ note.published_date }}</p>
     </div>
-    
-    {% for note in notes %}
+    <h1><a href="{% url 'note_detail' pk=note.pk %}">{{ note.user }}</a></h1>
+    <p>{{ note.text|linebreaksbr }}</p>
+</div>
+{% endfor %}
 
-
-    <div>
-        <p>Published: {{ note.published_date }}</p>
-        <h2><a href="">{{ note.user }}</a></h2>
-        <p>{{ note.text|linebreaksbr }}</p>
-    </div>
-    {% endfor %}
-    
-</body>
-
-
-
-
-
-</html>
+{% endblock %}
